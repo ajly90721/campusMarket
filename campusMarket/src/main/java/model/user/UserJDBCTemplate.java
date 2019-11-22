@@ -2,6 +2,7 @@ package model.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.sql.DataSource;
@@ -35,7 +36,31 @@ public class UserJDBCTemplate implements UserDAO {
 	@Override
 	public ArrayList<User> getUserByIdAndPassword(String id, String password) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql="select * from user where id='"+id+"'"+"and password ='"+password+"'";
+
+		
+		 ArrayList<User> list = (ArrayList<User>) jdbcTemplateObject.query(sql, new RowMapper<User>() {
+
+				@Override
+				public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					User u=new User();
+					
+					u.setId(rs.getString("uid"));
+					u.setCampus(rs.getString("campus"));
+					u.setGender(rs.getString("gender"));
+					u.setIconPath(rs.getString("iconPath"));
+					u.setName(rs.getString("uname"));
+					u.setPassword(rs.getString("password"));
+					u.setSchool(rs.getString("school"));
+					
+					
+					
+					return u;
+				}
+				
+				});
+		return list;
 	}
 
 	@Override
@@ -75,7 +100,33 @@ public class UserJDBCTemplate implements UserDAO {
 	public User updateUser(String id, String name, String password, String gender, String school, String campus,
 			String iconPath) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql="update user set (uname,password,gender,school,campus,iconPath) = (?,?,?,?,?,?) where uid='"+id+"'";
+
+		jdbcTemplateObject.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				// TODO Auto-generated method stub
+				PreparedStatement pst=con.prepareStatement(sql);
+				pst.setString(1, name);
+				pst.setString(2, password);
+				pst.setString(3, gender);
+				pst.setString(4, school);
+				pst.setString(5, campus);
+				pst.setString(6, iconPath);
+				return pst;
+			}
+			
+		});		
+		User u=new User();
+		u.setCampus(campus);
+		u.setGender(gender);
+		u.setIconPath(iconPath);
+		u.setPassword(password);
+		u.setSchool(school);
+		u.setName(name);
+		u.setId(id);
+		return u;
 	}
 
 }
