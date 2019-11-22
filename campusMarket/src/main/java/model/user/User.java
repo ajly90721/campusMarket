@@ -1,13 +1,13 @@
 package model.user;
 
 public class User {
-	private String id;
-	private String name;
-	private String password;
-	private String gender;
-	private String school;
-	private String campus;
-	private String iconPath;
+	private String id;	//长度为12
+	private String name;//不大于7个字符
+	private String password;//不大于15，默认为303303303
+	private String gender;//不大于2
+	private String school;//不大于10
+	private String campus;//不大于10
+	private String iconPath;//不大于255
 	
 	public String getId() {
 		return id;

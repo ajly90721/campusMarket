@@ -10,10 +10,10 @@
 	
 	<bean id="dataSource" 
       	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      	<property name="url" value="jdbc:mysql://www.shadowingszy.top:3306/campusMarket"/>
-      	<property name="username" value="root"/>
-      	<property name="password" value="798245456"/>
+      	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+      	<property name="url" value="jdbc:mysql://localhost:3306/market?serverTimezone=UTC"/>
+      	<property name="username" value="admin"/>
+      	<property name="password" value="2017303"/>
 	</bean>
 	
    	<bean id="UserJDBCTemplate" class="model.user.UserJDBCTemplate">
