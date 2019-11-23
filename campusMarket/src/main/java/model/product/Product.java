@@ -8,13 +8,13 @@ package model.product;
  *
  */
 public class Product {
-	private String id;
-	private String name;
-	private String userId;
-	private String price;
-	private String time;
-	private String description;
-	private String iconPath;
+	private String id;//自动生成，最大长度11位int
+	private String name;//不大于12
+	private String userId;//12位
+	private String price;//十位，两位小数
+	private String time;//每次更改都会更新
+	private String description;//不超过255
+	private String iconPath;//不超过255
 	public String getId() {
 		return id;
 	}
@@ -63,5 +63,6 @@ public class Product {
 		return "Product [id=" + id + ", name=" + name + ", userId=" + userId + ", price=" + price
 				+ ", time=" + time + ", description=" + description + ", iconPath=" + iconPath + "]";
 	}
+
 	
 }
