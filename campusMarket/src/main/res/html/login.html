@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>校园小拍 登录</title>
   <link rel="stylesheet" type="text/css" href="../res/static/css/main.css">
   <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
   <script type="text/javascript" src="../res/layui/layui.js"></script>
@@ -15,10 +15,11 @@
     <div class="site-nav w1200">
       <p class="sn-back-home">
         <i class="layui-icon layui-icon-home"></i>
-        <a href="#">首页</a>
+        <a href="index.html">首页</a>
       </p>
       <div class="sn-quick-menu">
         <div class="login"><a href="login.html">登录</a></div>
+        <div class="signin"><a href="signin.html">注册</a></div>
       </div>
     </div>
   </div>
@@ -29,7 +30,7 @@
     <div class="headerLayout w1200">
       <div class="headerCon">
         <h1 class="mallLogo">
-          <a href="#" title="校园小拍">
+          <a href="index.html" title="校园小拍">
             <img src="../res/static/img/logo.png">
           </a>
         </h1>
@@ -52,30 +53,35 @@
     </div>
     <div class="login-bg">
       <div class="login-cont w1200">
+
         <div class="form-box">
-          <form class="layui-form" action="">
-            <legend>手机号登录</legend>
-            <div class="layui-form-item">
+
+            <legend>登录</legend>
+
               <div class="layui-inline iphone">
                 <div class="layui-input-inline">
                   <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
-                  <input type="tel" name="phone" id="phone" lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                  <input type="tel" name="phone" id="phone" lay-verify="required|phone" placeholder="ID" autocomplete="off" class="layui-input">
                 </div>
               </div>
-              <div class="layui-inline veri-code">
+
+              <div class="layui-inline iphone">
                 <div class="layui-input-inline">
-                  <input id="pnum" type="text" name="pnum" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-                  <input type="button" class="layui-btn" id="find"  value="验证码" /> 
+                  <i class="layui-icon layui-icon-password iphone-icon"></i>
+                  <input type="password" name="pwd" id="pwd" lay-verify="required|phone" placeholder="密码" autocomplete="off" class="layui-input">
                 </div>
               </div>
-            </div>
+
             <div class="layui-form-item login-btn">
               <div class="layui-input-block">
                 <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="return false">登录</button>
               </div>
             </div>
-          </form>
+
+          <br>
+          <br>
         </div>
+
       </div>
     </div>
   </div>
@@ -102,56 +108,8 @@
     </div>
   </div>
   <script type="text/javascript">
-   layui.config({
-      base: '../res/static/js/util' //你存放新模块的目录，注意，不是layui的模块目录
-    }).use(['jquery','form'],function(){
-          var $ = layui.$,form = layui.form;
 
 
-        $("#find").click(function() {
-            if(!/^1\d{10}$/.test($("#phone").val())){
-              layer.msg("请输入正确的手机号");
-              return false;
-            }
-            var obj=this;
-            $.ajax({
-                type:"get",
-                url:"../json/login.json",
-                dataType:"json",//返回的
-                success:function(data) {
-                    
-                    if(data.result){
-                        $("#find").addClass(" layui-btn-disabled");
-                        $('#find').attr('disabled',"true");
-                        settime(obj);
-                        $("#msg").text(data.msg);
-                    }else{
-                        layer.msg(data.msg);
-                    }
-                },
-                error:function(msg) {
-                    console.log(msg);
-                }
-            }); 
-        })
-        var countdown=60; 
-        function settime(obj) { 
-        if (countdown == 0) { 
-            obj.removeAttribute("disabled"); 
-            obj.classList.remove("layui-btn-disabled")
-            obj.value="获取验证码"; 
-            countdown = 60; 
-            return;
-        } else { 
-            
-            obj.value="重新发送(" + countdown + ")"; 
-            countdown--; 
-        } 
-        setTimeout(function() { 
-            settime(obj) }
-            ,1000) 
-        }
-    })
   </script>
 
 </body>
