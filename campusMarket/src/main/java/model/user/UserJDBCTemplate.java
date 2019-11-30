@@ -34,7 +34,7 @@ public class UserJDBCTemplate implements UserDAO {
 
 
 	@Override
-	public ArrayList<User> getUserByIdAndPassword(String id, String password) {
+	public User getUserByIdAndPassword(String id, String password) {
 		// TODO Auto-generated method stub
 		String sql="select * from user where id='"+id+"'"+"and password ='"+password+"'";
 
@@ -60,12 +60,12 @@ public class UserJDBCTemplate implements UserDAO {
 				}
 				
 				});
-		return list;
+		return list.get(0);
 	}
 
 	@Override
 	public User addUser(String id, String name, String password, String gender, String school, String campus,
-			String iconPath) {
+			String iconPath, String telephone) {
 		// TODO Auto-generated method stub
 		String sql="insert into user(uname,uid,password,gender,school,campus,iconPath) values "+"(?,?,?,?,?,?,?)";
 		jdbcTemplateObject.update(new PreparedStatementCreator() {
@@ -98,7 +98,7 @@ public class UserJDBCTemplate implements UserDAO {
 
 	@Override
 	public User updateUser(String id, String name, String password, String gender, String school, String campus,
-			String iconPath) {
+			String iconPath, String telephone) {
 		// TODO Auto-generated method stub
 		String sql="update user set (uname,password,gender,school,campus,iconPath) = (?,?,?,?,?,?) where uid='"+id+"'";
 

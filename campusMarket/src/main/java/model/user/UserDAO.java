@@ -14,13 +14,13 @@ import java.util.ArrayList;
  */
 public interface UserDAO {
 	/**
-	 * Return all founded Users (even more than one founded)
+	 * Return one User
 	 * @param id
 	 * @param password
 	 * @return
 	 * 
 	 */
-	public ArrayList<User> getUserByIdAndPassword(String id, String password);
+	public User getUserByIdAndPassword(String id, String password);
 	
 	/**
 	 * @param id
@@ -36,7 +36,8 @@ public interface UserDAO {
 	 * @return
 	 * Return newly added user
 	 */
-	public User addUser(String id, String name, String password, String gender, String school, String campus, String iconPath);
+	public User addUser(String id, String name, String password, String gender,
+			String school, String campus, String iconPath, String telephone);
 	
 	/**
 	 * @param id
@@ -49,5 +50,6 @@ public interface UserDAO {
 	 * @return
 	 * Return newly updated user
 	 */
-	public User updateUser(String id, String name, String password, String gender, String school, String campus, String iconPath);
+	public User updateUser(String id, String name, String password, String gender,
+			String school, String campus, String iconPath, String telephone);
 }
