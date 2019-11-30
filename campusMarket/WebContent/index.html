@@ -20,7 +20,7 @@
 			var data = {"id": id, "password": password}
 			$.post(
 					"/campusMarket/login",
-					{"data": JSON.stringify(data)},
+					{"id": id, "password": password},
 					function(ret) {
 						alert("post")
 					})
