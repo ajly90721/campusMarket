@@ -55,28 +55,30 @@
       <div class="login-cont w1200">
 
         <div class="form-box">
-
+          <form class="layui-form" action=".login" method="get">
             <legend>登录</legend>
 
-              <div class="layui-inline iphone">
-                <div class="layui-input-inline">
-                  <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
-                  <input type="tel" name="phone" id="phone" lay-verify="required|phone" placeholder="ID" autocomplete="off" class="layui-input">
-                </div>
+            <div class="layui-inline iphone">
+              <div class="layui-input-inline">
+                <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
+                <input type="tel" name="phone" id="phone" lay-verify="required|phone" placeholder="ID" autocomplete="off" class="layui-input">
               </div>
+            </div>
 
-              <div class="layui-inline iphone">
-                <div class="layui-input-inline">
-                  <i class="layui-icon layui-icon-password iphone-icon"></i>
-                  <input type="password" name="pwd" id="pwd" lay-verify="required|phone" placeholder="密码" autocomplete="off" class="layui-input">
-                </div>
+            <div class="layui-inline iphone">
+              <div class="layui-input-inline">
+                <i class="layui-icon layui-icon-password iphone-icon"></i>
+                <input type="password" name="pwd" id="pwd" lay-verify="required|phone" placeholder="密码" autocomplete="off" class="layui-input">
               </div>
+            </div>
 
             <div class="layui-form-item login-btn">
               <div class="layui-input-block">
                 <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="return false">登录</button>
               </div>
             </div>
+          </form>
+
 
           <br>
           <br>
