@@ -6,7 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="WebContent/WEB-INF/classes" path="conf"/>
+	<classpathentry kind="src" path="conf"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="test" value="true"/>
@@ -36,5 +36,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/mysql-connector-java-8.0.16.jar"/>
+	<classpathentry kind="lib" path="D:/apache-maven-repo/org/springframework/spring-test/5.2.1.RELEASE/spring-test-5.2.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
