@@ -11,18 +11,18 @@
 		<input type="text" name="id" id="id">
 		<input type="password" name="password" id="password">
 		<input type="button" id="loginButton" value="login">
+		<input type="text">
 	</form>
 	<script>
 		$("#loginButton").click(function() {
 			var id = document.getElementById('id').value;
 			var password = document.getElementById('password').value;
 			var data = {"id": id, "password": password}
-			alert(data)
 			$.post(
 					"/campusMarket/login",
 					{"data": JSON.stringify(data)},
 					function(ret) {
-						alert(ret)
+						alert("post")
 					})
 			console.log("post")
 		})
