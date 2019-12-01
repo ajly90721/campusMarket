@@ -15,7 +15,7 @@ public class test1 {
 
 			// TODO Auto-generated method stub
 		//product test
-			String path = "src\\main\\webapp\\WEB-INF\\Beans.xml";
+			String path = "classpath:Beans.xml";
 			FileSystemXmlApplicationContext context =new FileSystemXmlApplicationContext(path);
 			ProductJDBCTemplate pt =(ProductJDBCTemplate)context.getBean("ProductJDBCTemplate");
 //			Product p=pt.addProduct("3","3","3","2019-11-21 21:31:21","3", null);
