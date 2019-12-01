@@ -9,17 +9,21 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+@Component
 public class ProductJDBCTemplate implements ProductDAO {
 
+	@Autowired
 	private DriverManagerDataSource dataSource;
 	public DriverManagerDataSource getDataSource() {
 		return dataSource;
