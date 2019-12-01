@@ -36,6 +36,12 @@ public class UserController {
 	private ApplicationContext context;
 	private static final Log logger = LogFactory.getLog(UserController.class);
 	
+	@RequestMapping(value="/loginPage")
+	public String loginPage(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "login";
+	}
+	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody
 	public void login(HttpServletRequest request, HttpServletResponse response) {
