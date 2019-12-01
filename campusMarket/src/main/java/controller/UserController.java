@@ -41,6 +41,21 @@ public class UserController {
 		
 		return "login";
 	}
+	@RequestMapping(value="/registerPage")
+	public String registerPage(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "register";
+	}
+	@RequestMapping(value="/aboutPage")
+	public String aboutPage(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "about";
+	}
+	@RequestMapping(value="/commodityPage")
+	public String commodityPage(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "commodity";
+	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@ResponseBody

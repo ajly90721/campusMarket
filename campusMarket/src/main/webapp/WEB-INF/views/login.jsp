@@ -21,8 +21,8 @@
         <a href="#">首页</a>
       </p>
       <div class="sn-quick-menu">
-        <div class="login"><a href="login.html">登录</a></div>
-        <div class="login"><a href="campusMarket/register">注册</a></div>
+        <div class="login"><a href="loginPage">登录</a></div>
+        <div class="login"><a href="registerPage">注册</a></div>
       </div>
     </div>
   </div>
@@ -47,9 +47,9 @@
       <div class="inner-cont0">
         <div class="inner-cont1 w1200">
           <div class="inner-cont2">
-            <a href="commodity.html" class="active">所有商品</a>
-            <a href="information.html">校园资讯</a>
-            <a href="about.html">关于我们</a>
+            <a href="commodityPage" >所有商品</a>
+            <a href="http://www.sc.sdu.edu.cn/">校园资讯</a>
+            <a href="aboutPage">关于我们</a>
           </div>
         </div>
       </div>

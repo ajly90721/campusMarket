@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                    
+                        
+    
     
     
     
@@ -10,22 +11,27 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/WEB-INF/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/test/java"/>
-                                        
+        <wb-resource deploy-path="/WEB-INF/views" source-path="/src/main/webapp/WEB-INF/views"/>
+                                                
+        
         
         
         
         <property name="context-root" value="campusMarket"/>
-                                        
+                                                
+        
         
         
         
         <property name="java-output-path" value="/campusMarket/target/classes"/>
-                                    
+                                            
+    
     
     
     
     </wb-module>
-                
+                    
+
 
 
 
