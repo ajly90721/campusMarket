@@ -24,6 +24,7 @@ public class UserJDBCTemplate implements UserDAO {
 	
 	@Autowired
 	private DriverManagerDataSource dataSource; //Auto injected, no need to initalize
+	
 	public DriverManagerDataSource getDataSource() {
 		return dataSource;
 	}
@@ -35,10 +36,6 @@ public class UserJDBCTemplate implements UserDAO {
 
 	private JdbcTemplate jdbcTemplateObject;
 	
-
-
-
-
 	@Override
 	public User getUserByIdAndPassword(String id, String password) {
 		// TODO Auto-generated method stub
