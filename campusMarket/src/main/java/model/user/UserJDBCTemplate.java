@@ -37,7 +37,7 @@ public class UserJDBCTemplate implements UserDAO {
 	private JdbcTemplate jdbcTemplateObject;
 	
 	@Override
-	public User getUserByIdAndPassword(String id, String password) {
+	public ArrayList<User> getUserByIdAndPassword(String id, String password) {
 		// TODO Auto-generated method stub
 		String sql="select * from user where id='"+id+"'"+"and password ='"+password+"'";
 
@@ -49,23 +49,52 @@ public class UserJDBCTemplate implements UserDAO {
 					// TODO Auto-generated method stub
 					User u=new User();
 					
-					u.setId(rs.getString("uid"));
+					u.setId(rs.getString("id"));
 					u.setCampus(rs.getString("campus"));
 					u.setGender(rs.getString("gender"));
 					u.setIconPath(rs.getString("iconPath"));
-					u.setName(rs.getString("uname"));
+					u.setName(rs.getString("name"));
 					u.setPassword(rs.getString("password"));
 					u.setSchool(rs.getString("school"));
-					
+					u.setTelephone(rs.getString("telephone"));
 					
 					
 					return u;
 				}
 				
 				});
-		return list.get(0);
+		return list;
 	}
 
+	public ArrayList<User> getById(String id) {
+		// TODO Auto-generated method stub
+		String sql="select * from user where id='"+id+"'";
+
+		
+		 ArrayList<User> list = (ArrayList<User>) jdbcTemplateObject.query(sql, new RowMapper<User>() {
+
+				@Override
+				public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					User u=new User();
+					
+					u.setId(rs.getString("id"));
+					u.setCampus(rs.getString("campus"));
+					u.setGender(rs.getString("gender"));
+					u.setIconPath(rs.getString("iconPath"));
+					u.setName(rs.getString("name"));
+					u.setPassword(rs.getString("password"));
+					u.setSchool(rs.getString("school"));
+					u.setTelephone(rs.getString("telephone"));
+					
+					
+					return u;
+				}
+				
+				});
+		return list;
+	}
+	
 	@Override
 	public User addUser(String id, String name, String password, String gender, String school, String campus,
 			String iconPath, String telephone) {
@@ -106,7 +135,7 @@ public class UserJDBCTemplate implements UserDAO {
 	public User updateUser(String id, String name, String password, String gender, String school, String campus,
 			String iconPath, String telephone) {
 		// TODO Auto-generated method stub
-		String sql="update user set (uname,password,gender,school,campus,iconPath) = (?,?,?,?,?,?) where uid='"+id+"'";
+		String sql="update user set (name,password,gender,school,campus,iconPath,telephone) = (?,?,?,?,?,?,?) where id='"+id+"'";
 
 		jdbcTemplateObject.update(new PreparedStatementCreator() {
 
@@ -120,6 +149,7 @@ public class UserJDBCTemplate implements UserDAO {
 				pst.setString(4, school);
 				pst.setString(5, campus);
 				pst.setString(6, iconPath);
+				pst.setString(7, telephone);
 				return pst;
 			}
 			
@@ -132,7 +162,29 @@ public class UserJDBCTemplate implements UserDAO {
 		u.setSchool(school);
 		u.setName(name);
 		u.setId(id);
+		u.setTelephone(telephone);
 		return u;
+	}
+	
+
+	public User updatePassword(String id,String pwd) {
+		// TODO Auto-generated method stub
+		String sql="update user set (password) = (?) where id='"+id+"'";
+
+		jdbcTemplateObject.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				// TODO Auto-generated method stub
+				PreparedStatement pst=con.prepareStatement(sql);
+				pst.setString(1, pwd);
+				return pst;
+			}
+			
+		});		
+		ArrayList<User> u=this.getById(id);
+		User user=u.get(0);
+		return user;
 	}
 
 }

@@ -16,6 +16,8 @@ public class Product {
 	private String description;//不超过255
 	private String iconPath;//不超过255
 	private String status;
+	private String directory;
+	
 	
 	public Product() {
 
@@ -80,6 +82,9 @@ public class Product {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public void setDirectory(String directory) {
+		this.directory = directory;
 	}
 	
 	@Override

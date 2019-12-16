@@ -79,4 +79,10 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", gender=" + gender
 				+ ", school=" + school + ", campus=" + campus + ", iconPath=" + iconPath + "]";
 	}
+	public boolean isBack()
+	{
+		
+		return false;
+		
+	}
 }
