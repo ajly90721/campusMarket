@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import model.product.*;
 import model.user.User;
@@ -234,6 +237,31 @@ public class ProductController {
 		
 
 		return "addproduct";
+	}
+	
+	@RequestMapping(value="/indexpost",produces = { "application/json;charset=UTF-8" })
+	@ResponseBody
+	public String getIndexProduct(HttpServletRequest request, HttpServletResponse response) {
+		
+		ArrayList<Product> p=null;
+		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			context = new ClassPathXmlApplicationContext("classpath*:Beans.xml");
+			ProductJDBCTemplate pt = context.getBean("ProductJDBCTemplate", ProductJDBCTemplate.class);
+			
+			p=pt.getLimits(4);
+
+			System.out.println(p.toString()+"		/n");
+			  
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			HttpTools.writeJSON(response, "fail");
+		}
+		JSONArray json=JSONArray.parseArray(JSON.toJSONString(p));
+		System.out.println(json);
+		return json.toString();
 	}
 
 	

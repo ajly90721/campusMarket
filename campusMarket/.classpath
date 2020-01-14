@@ -35,8 +35,5 @@
 	<classpathentry kind="lib" path="D:/libs springMVC/libs/spring-test-5.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="D:/libs CutString/ansj_seg-5.1.6.jar"/>
 	<classpathentry kind="lib" path="D:/libs CutString/nlp-lang-1.7.8.jar"/>
-	<classpathentry kind="lib" path="D:/libs json/jackson-annotations-2.10.0.jar"/>
-	<classpathentry kind="lib" path="D:/libs json/jackson-core-2.10.1.jar"/>
-	<classpathentry kind="lib" path="D:/libs json/jackson-databind-2.9.10.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

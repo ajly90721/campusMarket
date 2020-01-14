@@ -84,8 +84,9 @@
           <div class="list-box">
 
             <dl>
+             <dd><a href="commodityPage">所有</a></dd>
+             <dd><a href="searchByDirectory?directory=综合">综合</a></dd>
              <dd><a href="searchByDirectory?directory=书籍">书籍</a></dd>
-			 <dd><a href="searchByDirectory?directory=综合">综合</a></dd>
 			 <dd><a href="searchByDirectory?directory=家用电器">家用电器</a></dd>
             </dl>
 
